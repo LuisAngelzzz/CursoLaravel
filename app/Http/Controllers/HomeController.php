@@ -8,7 +8,7 @@ class HomeController extends Controller
 {
     public function __invoke(){
         
-        return "bienvendio a la pagina principal";
+        return view('home');
 
     }
 }
