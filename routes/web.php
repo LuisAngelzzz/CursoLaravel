@@ -15,12 +15,15 @@ use App\Http\Controllers\CursoController;
 |
 */
 
-Route::get('/', HomeController::class);
 
-Route::controller(CursoController::class)->group(function(){
+ Route::get('/', HomeController::class);
 
-route::get('cursos','index');
-route::get('cursos/create', 'create');
-route::get('cursos/{curso}','show');
 
+   
+
+Route::controller(CursoController::class)->group(function () {
+
+    route::get('cursos', 'index');
+    route::get('cursos/create', 'create');
+    route::get('cursos/{curso}', 'show');
 });
