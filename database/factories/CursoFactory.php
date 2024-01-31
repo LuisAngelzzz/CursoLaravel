@@ -26,3 +26,6 @@ class CursoFactory extends Factory
         ];
     }
 }
+
+
+
