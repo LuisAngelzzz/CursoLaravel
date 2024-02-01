@@ -13,7 +13,7 @@ class CursoController extends Controller
         
  
         $cursos = Curso::paginate();
-
+    
         return view('cursos.index', compact('cursos'));
 
 
@@ -22,15 +22,38 @@ class CursoController extends Controller
     public function create(){
         return view('cursos.create');
 
-
     }
+
+
+    public function store(Request $request) {
+	$curso = new Curso();
+	$curso->name = $request->name;
+	$curso->descripcion = $request->descripcion;
+	$curso->categoria = $request->categoria;
+	$curso->save();
+	
+	return redirect()->route('cursos.show', $curso); //podemos pasar solo $curso
+}
+
     public function show($curso){
 
         $curso = Curso::find($curso);
 
         return view('cursos.show', compact('curso'));
 
-
-
     }
+    public function edit(Curso $curso) {
+        return view('cursos.edit', compact('curso'));
+    }
+    public function update(Request $request, Curso $curso) {
+        $curso->name = $request->name;
+        $curso->descripcion= $request->descripcion;
+        $curso->categoria= $request->categoria;
+
+        $curso->save();
+
+        return redirect()->route('cursos.show', $curso);
+  }    
+    
+
 }
