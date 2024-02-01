@@ -28,8 +28,8 @@ class CursoController extends Controller
     public function store(Request $request) {
 
         $request->validate([
-            'name' =>  'required|max:10',
-            'descripcion' => 'required|min:10',
+            'name' =>  'required|min:3',
+            'descripcion' => 'required',
             'categoria' =>  'required'
       ]);
 
@@ -53,6 +53,15 @@ class CursoController extends Controller
         return view('cursos.edit', compact('curso'));
     }
     public function update(Request $request, Curso $curso) {
+
+        $request->validate([
+
+            'name' =>  'required|min:3',
+            'descripcion' => 'required',
+            'categoria' =>  'required'
+
+        ]);
+
         $curso->name = $request->name;
         $curso->descripcion= $request->descripcion;
         $curso->categoria= $request->categoria;
