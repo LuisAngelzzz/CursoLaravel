@@ -26,7 +26,7 @@
             <label>
                 Descripcion:
                 <br>
-                <textarea name="descripcion" rows="5">{{ old('name') }}</textarea>
+                <textarea name="descripcion" rows="5">{{ old('descripcion') }}</textarea>
             </label>
             @error('descripcion')
             <br>
@@ -37,7 +37,7 @@
             <label>
                 Categoria:
                 <br>
-                <input type="text" name="categoria" value="{{ old('name') }}"/>
+                <input type="text" name="categoria" value="{{ old('categoria') }}"/>
             </label>
             @error('categoria')
             <br>
