@@ -1,9 +1,11 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use  App\Http\Controllers\HomeController;
 use App\Http\Controllers\CursoController;
-
+use App\Http\Controllers\ContactanosController;
+use  App\Http\Controllers\HomeController;
+use App\Mail\ContactanosMailable;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,8 +24,31 @@ use App\Http\Controllers\CursoController;
 
     Route::view('nosotros', 'nosotros')->name('nosotros');
 
+  //   Route::get('contactanos', function () {
+  //       $correo = new ContactanosMailable;
+  //       Mail::to('victor.aranaf92@gmail.com')->send($correo);
+  //       return "Mensaje enviado.";
+  // })->name('contactanos.index');
 
+    route::get('contactanos', [ContactanosController::class, 'index']) 
+        -> name ('contactanos.index');
+
+    route::post( 'contactanos',[ContactanosController::class,'store'] )
+         -> name ('contactanos.store') ;
     
+  
+
+
+
+
+
+
+
+
+
+
+
+
     // Route::get('cursos', [CursoController::class, 'index'])->name('cursos.index');
 
     // Route::get('cursos/create', [CursoController::class, 'create'])->name('cursos.create');
